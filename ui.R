@@ -17,8 +17,6 @@ unigrams[, word := as.character(word)]
 custom_stopwords <- c("the", "of", "to", "a", "in", "and", "is", "was", "are")
 predict_next_word <- function(w1, w2 = NULL, n = 3) {
   prefix_str <- if (!is.null(w2)) paste(w1, w2) else w1
-  cat(">>> PREFIX:", prefix_str, "\n")
-
   trig <- trigrams[prefix == prefix_str]
 
   if (nrow(trig) > 0) {
@@ -60,4 +58,5 @@ ui <- fluidPage(
     )
   )
 )
+
 
